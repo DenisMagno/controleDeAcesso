@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS `colaborador`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `colaborador` (
   `id` int(11) NOT NULL,
-  `cnh` varchar(45) NOT NULL,
+  `cnh` int(11) NOT NULL,
   `idGerente` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `cnh_UNIQUE` (`cnh`),
@@ -37,15 +37,6 @@ CREATE TABLE `colaborador` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `colaborador`
---
-
-LOCK TABLES `colaborador` WRITE;
-/*!40000 ALTER TABLE `colaborador` DISABLE KEYS */;
-/*!40000 ALTER TABLE `colaborador` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `gerente`
 --
 
@@ -54,7 +45,7 @@ DROP TABLE IF EXISTS `gerente`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gerente` (
   `id` int(11) NOT NULL,
-  `graduacao` varchar(45) NOT NULL,
+  `graduacao` varchar(300) NOT NULL,
   `idSupervisor` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_Gerente_Supervisor_idx` (`idSupervisor`),
@@ -62,15 +53,6 @@ CREATE TABLE `gerente` (
   CONSTRAINT `FK_Gerente_Supervisor` FOREIGN KEY (`idSupervisor`) REFERENCES `supervisor` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `gerente`
---
-
-LOCK TABLES `gerente` WRITE;
-/*!40000 ALTER TABLE `gerente` DISABLE KEYS */;
-/*!40000 ALTER TABLE `gerente` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `pessoa`
@@ -81,25 +63,16 @@ DROP TABLE IF EXISTS `pessoa`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pessoa` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(20) NOT NULL,
-  `sobrenome` varchar(45) NOT NULL,
+  `nome` varchar(30) NOT NULL,
+  `sobrenome` varchar(50) NOT NULL,
   `login` varchar(20) NOT NULL,
-  `senha` varchar(45) NOT NULL,
-  `rg` varchar(45) NOT NULL,
+  `senha` varchar(20) NOT NULL,
+  `rg` varchar(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login_UNIQUE` (`login`),
   UNIQUE KEY `rg_UNIQUE` (`rg`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pessoa`
---
-
-LOCK TABLES `pessoa` WRITE;
-/*!40000 ALTER TABLE `pessoa` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pessoa` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `presidente`
@@ -110,20 +83,11 @@ DROP TABLE IF EXISTS `presidente`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `presidente` (
   `id` int(11) NOT NULL,
-  `setor` varchar(45) NOT NULL,
+  `setor` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `FK_Presidente_Pessoa` FOREIGN KEY (`id`) REFERENCES `pessoa` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `presidente`
---
-
-LOCK TABLES `presidente` WRITE;
-/*!40000 ALTER TABLE `presidente` DISABLE KEYS */;
-/*!40000 ALTER TABLE `presidente` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `supervisor`
@@ -134,8 +98,8 @@ DROP TABLE IF EXISTS `supervisor`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `supervisor` (
   `id` int(11) NOT NULL,
-  `graducao` varchar(45) NOT NULL,
-  `especializacao` varchar(45) NOT NULL,
+  `graducao` varchar(200) NOT NULL,
+  `especializacao` varchar(150) NOT NULL,
   `idPresidente` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_Supervisor_Presidente_idx` (`idPresidente`),
@@ -143,15 +107,6 @@ CREATE TABLE `supervisor` (
   CONSTRAINT `FK_Supervisor_Presidente` FOREIGN KEY (`idPresidente`) REFERENCES `presidente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `supervisor`
---
-
-LOCK TABLES `supervisor` WRITE;
-/*!40000 ALTER TABLE `supervisor` DISABLE KEYS */;
-/*!40000 ALTER TABLE `supervisor` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -162,4 +117,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-23 21:27:52
+-- Dump completed on 2017-10-25 19:39:15
