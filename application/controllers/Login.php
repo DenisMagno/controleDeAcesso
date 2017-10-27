@@ -1,13 +1,15 @@
 <?php
-	/*Para alterar o controller padrão que é chamado na primeira página
-	accessar application/config/routes.php */
-
-	class Teste extends CI_Controller{
+	class Login extends CI_Controller{
 
 		//Função com nome index funciona como um construtor para o navegador.
 		//Ela é executada logo que o controler e chamado no navegador sem a necessidade de especificar seu nome
 		public function index(){
-			echo "Funcionou!";
+			$this->load->helper("url");
+			$this->load->view("component/head.php");
+			
+			$this->load->view("loginView.php");
+
+			$this->load->view("component/footer.php");
 		}
 	}
 ?>
