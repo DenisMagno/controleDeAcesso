@@ -98,7 +98,7 @@ DROP TABLE IF EXISTS `supervisor`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `supervisor` (
   `id` int(11) NOT NULL,
-  `graducao` varchar(200) NOT NULL,
+  `graduacao` varchar(200) NOT NULL,
   `especializacao` varchar(150) NOT NULL,
   `idPresidente` int(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -117,4 +117,4 @@ CREATE TABLE `supervisor` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-25 19:39:15
+-- Dump completed on 2017-10-28 17:45:37
