@@ -3,15 +3,23 @@
 		protected $id;
 		protected $nome;
 		protected $sobrenome;
-		protected $login
+		protected $login;
 		protected $senha;
 		protected $rg;
+
+		protected $db;
+
+		public function __construct(){
+			// Acesso ao gerenciador de banco de dados do CodeIgniter
+			$ci = & get_instance();
+			$this->db = $ci->db;
+		}
 
 		/** Get's e set's **/
 
 		//ID
 		public function getId(){
-			return $this->id
+			return $this->id;
 		}
 
 		//NOME
@@ -48,10 +56,13 @@
 
 		//RG
 		public function getRg(){
-			return $this->rg
+			return $this->rg;
 		}
 		public function setRg($rg){
 			$this->rg = $rg;
 		}
+
+		//Métodos
+		abstract function login();
 	}
 ?>

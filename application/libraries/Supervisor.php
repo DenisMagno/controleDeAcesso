@@ -1,9 +1,10 @@
 <?php
 	include_once APPPATH . 'libraries/Pessoa.php';
-	
-	class Gerente extends Pessoa{
+
+	class Supervisor extends Pessoa{
 		private $graduacao;
-		private $idSupervisor;
+		private $especializacao;
+		private $idPresidente;
 
 		/** Get's e set's **/
 
@@ -16,13 +17,22 @@
 			$this->graduacao = $graduacao;
 		}
 
-		//ID SUPERVISOR (Relacionamento com supervisor)
-		public function getIdSupervisor(){
-			return $this->idSupervisor;
+		//ESPECIALIZAÇÃO
+		public function getEspecializacao(){
+			return $this->especializacao;
 		}
 
-		public function setIdSupervisor($idSupervisor){
-			$this->idSupervisor = $idSupervisor;
+		public function setEspecializacao($especializacao){
+			$this->especializacao = $especializacao;
+		}
+
+		//ID PRESIDENTE (Relacionamento com presidente)
+		public function getIdPresidente(){
+			return $this->idPresidente;
+		}
+
+		public function setIdPresidente($idPresidente){
+			$this->idPresidente = $idPresidente;
 		}
 
 		public function login(){
@@ -39,20 +49,21 @@
 				$this->senha = $row->senha;
 				$this->rg = $row->rg;
 
-				$sql = "SELECT * FROM gerente WHERE id = ?";
+				$sql = "SELECT * FROM supervisor WHERE id = ?";
 				$query = $this->db->query($sql, array($this->id));
 				$row = $query->row();
 
 				if($row != null){
 
 					$this->graduacao = $row->graduacao;
-					$this->idSupervisor = $row->idSupervisor;
+					$this->especializacao = $row->especializacao;
+					$this->idPresidente = $row->idPresidente;
 
 					//return $this;
-					print_r("Funcionou gerente");
+					print_r("Funcionou supervisor");
 					exit;
 				}else{
-					print_r("Não é um gerente!");
+					print_r("Não é um supervisor!");
 					exit;
 				}
 			}else{

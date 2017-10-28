@@ -1,5 +1,5 @@
 <?php
-	class Login extends CI_Controller{
+	class Principal extends CI_Controller{
 
 		//Função com nome index funciona como um construtor para o navegador.
 		//Ela é executada logo que o controler e chamado no navegador sem a necessidade de especificar seu nome
