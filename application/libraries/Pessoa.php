@@ -1,11 +1,11 @@
 <?php
 	abstract class Pessoa{
-		private $id;
-		private $nome;
-		private $sobrenome;
-		private $login
-		private $senha;
-		private $rg;
+		protected $id;
+		protected $nome;
+		protected $sobrenome;
+		protected $login
+		protected $senha;
+		protected $rg;
 
 		/** Get's e set's **/
 

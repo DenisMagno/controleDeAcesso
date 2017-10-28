@@ -6,7 +6,7 @@
 		<div class="md-form">
 			<i class="fa fa-user prefix grey-text"></i>
 			<input type="text" id="orangeForm-name" class="form-control">
-			<label for="orangeForm-name">Your name</label>
+			<label   for="orangeForm-name">Your name</label>
 		</div>
 		<div class="md-form">
 			<i class="fa fa-envelope prefix grey-text"></i>
