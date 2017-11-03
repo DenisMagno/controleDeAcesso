@@ -11,9 +11,10 @@
 
 			$presidente->setLogin($this->input->post('login'));
 			$presidente->setSenha($this->input->post('senha'));
+			$result = $presidente->login();
 
-			if($presidente->login() != null ){
-				return true;
+			if($result != null){
+				return $result;
 			}else{
 				return false;
 			}
@@ -24,9 +25,10 @@
 
 			$supervisor->setLogin($this->input->post('login'));
 			$supervisor->setSenha($this->input->post('senha'));
+			$result = $supervisor->login();
 
-			if($supervisor->login() != null ){
-				return true;
+			if($result != null){
+				return $result;
 			}else{
 				return false;
 			}
@@ -38,8 +40,10 @@
 			$gerente->setLogin($this->input->post('login'));
 			$gerente->setSenha($this->input->post('senha'));
 
-			if($gerente->login() != null ){
-				return true;
+			$result = $gerente->login();
+
+			if($result != null){
+				return $result;
 			}else{
 				return false;
 			}
@@ -51,8 +55,10 @@
 			$colaborador->setLogin($this->input->post('login'));
 			$colaborador->setSenha($this->input->post('senha'));
 
-			if($colaborador->login() != null ){
-				return true;
+			$result = $colaborador->login();
+
+			if($result != null){
+				return $result;
 			}else{
 				return false;
 			}

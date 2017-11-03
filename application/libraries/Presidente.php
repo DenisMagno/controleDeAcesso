@@ -1,5 +1,6 @@
 <?php
 	include_once APPPATH . 'libraries/Pessoa.php';
+	include_once APPPATH . 'helpers/dataTransferObjects/DtoPresidente.php';
 
 	class Presidente extends Pessoa{
 		private $setor;
@@ -34,12 +35,9 @@
 				$row = $query->row();
 
 				if($row != null){
-
 					$this->setor = $row->setor;
 
-					//return $this;
-					print_r("Funcionou presidente");
-					exit;
+					return new DtoPresidente($this);
 				}else{
 					print_r("Não é um presidente!");
 					exit;

@@ -1,5 +1,6 @@
 <?php
 	include_once APPPATH . 'libraries/Pessoa.php';
+	include_once APPPATH . 'helpers/dataTransferObjects/DtoGerente.php';
 	
 	class Gerente extends Pessoa{
 		private $graduacao;
@@ -48,9 +49,7 @@
 					$this->graduacao = $row->graduacao;
 					$this->idSupervisor = $row->idSupervisor;
 
-					//return $this;
-					print_r("Funcionou gerente");
-					exit;
+					return new DtoGerente($this);
 				}else{
 					print_r("Não é um gerente!");
 					exit;

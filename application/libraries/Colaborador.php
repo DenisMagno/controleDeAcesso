@@ -1,5 +1,6 @@
 <?php
 	include_once APPPATH . 'libraries/Pessoa.php';
+	include_once APPPATH . 'helpers/dataTransferObjects/DtoColaborador.php';
 	
 	class Colaborador extends Pessoa{
 		private $cnh;
@@ -48,9 +49,7 @@
 					$this->cnh = $row->cnh;
 					$this->idGerente = $row->idGerente;
 
-					//return $this;
-					print_r("Funcionou colaborador");
-					exit;
+					return new DtoColaborador($this);
 				}else{
 					print_r("Não é um colaborador!");
 					exit;
