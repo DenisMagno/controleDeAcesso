@@ -15,9 +15,9 @@
 						$this->session->set_userdata('presidente', $login);
 						redirect(base_url("presidente/listaSupervisores"));
 					}else{
-						echo "<pre>".print_r($login, 1)."</pre>";
-						exit;
-						//$this->load->view('loginView.php',$erro);
+						$retorno = array('erro' => 'Erro ao logar-se como presidente',
+										 'mensagem' => 'Pessoa não cadastrada ou não é um presidente!');
+						$this->load->view('loginView.php',$retorno);
 					}
 					
 				break;
@@ -28,8 +28,9 @@
 						$this->session->set_userdata("supervisor", $login);
 						redirect(base_url("supervisor/listaGerentes"));
 					}else{
-						echo "Não logou!";
-						exit;
+						$retorno = array('erro' => 'Erro ao logar-se como supervisor',
+										 'mensagem' => 'Pessoa não cadastrada ou não é um supervisor!');
+						$this->load->view('loginView.php',$retorno);
 					}
 				break;
 
@@ -39,8 +40,9 @@
 						$this->session->set_userdata("gerente", $login);
 						redirect(base_url("gerente/listaColaboradores"));
 					}else{
-						echo "Não logou!";
-						exit;
+						$retorno = array('erro' => 'Erro ao logar-se como gerente',
+										 'mensagem' => 'Pessoa não cadastrada ou não é um gerente!');
+						$this->load->view('loginView.php',$retorno);
 					}
 				break;
 
@@ -50,13 +52,21 @@
 						$this->session->set_userdata("colaborador", $login);
 						redirect(base_url("colaborador/listaAfazeres"));
 					}else{
-						echo "Não logou!";
-						exit;
+						$retorno = array('erro' => 'Erro ao logar-se como colaborador',
+										 'mensagem' => 'Pessoa não cadastrada ou não é um colaborador!');
+						$this->load->view('loginView.php',$retorno);
 					}
 				break;
 			}
 
 			$this->load->view('component/footer.php');
+		}
+
+		public function logout(){
+			$this->load->helper('url');
+			$this->session->sess_destroy();
+
+			redirect(base_url());
 		}
 	}
 ?>

@@ -24,7 +24,7 @@
 			$this->load->model('PresidenteModel', 'model');
 			
 			$supervisores = $this->model->listaSupervisores($this->logado['id']);
-			$dados = array('titulo' => 'Lista de supervisores',
+			$dados = array('titulo' => 'Lista de supervisores em sua hierarquia',
 							'supervisores' => $supervisores);
 			$this->load->view('listaSupervisoresView.php', $dados);	
 

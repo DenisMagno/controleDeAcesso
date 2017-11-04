@@ -1,7 +1,7 @@
 <div class="container-login col-md-5 mx-auto">
 	<!-- Form login -->
 	<form class="col-md-12 mx-auto" method="POST" action="<?= base_url('pessoa/login');?>">
-		<div class="container-titulo">
+		<div class="container-titulo special-color">
 			<p class="h2 text-center mb-4">Logue-se</p>
 		</div>
 
@@ -44,8 +44,11 @@
 		</div>
 
 		<div class="text-center mt-5">
-			<button class="btn btn-elegant">Entrar <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+			<button class="btn special-color">Entrar <i class="fa fa-sign-in" aria-hidden="true"></i></button>
 		</div>
 	</form>
 	<!-- Form login -->
+
+	<p class="red-text text-center"><?php if(isset($erro)){echo $erro;}?></p>
+	<p class="red-text text-center"><?php if(isset($mensagem)){echo $mensagem;}?></p>
 </div>

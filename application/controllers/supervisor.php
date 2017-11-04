@@ -24,7 +24,7 @@
 			$this->load->model('SupervisorModel', 'model');
 
 			$gerentes = $this->model->listaGerentes($this->logado['id']);
-			$dados = array('titulo' => 'Lista de gerentes',
+			$dados = array('titulo' => 'Lista de gerentes em sua hierarquia',
 							'gerentes' => $gerentes);
 			$this->load->view('listaGerentesView.php', $dados);	
 

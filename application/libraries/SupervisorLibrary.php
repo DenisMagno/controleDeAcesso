@@ -71,12 +71,10 @@
 							'idPresidente' => $this->idPresidente
 					);
 				}else{
-					print_r("Não é um supervisor!");
-					exit;
+					return false;
 				}
 			}else{
-				print_r("Pessoa não cadastrada!");
-				exit;
+				return false;
 			}
 		}
 

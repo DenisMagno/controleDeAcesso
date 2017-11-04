@@ -25,7 +25,7 @@
 			
 			$colaboradores = $this->model->listaColaboradores($this->logado['id']);
 
-			$dados = array('titulo' => 'Lista de colaboradores',
+			$dados = array('titulo' => 'Lista de Colaboradores em sua hierarquia',
 							'colaboradores' => $colaboradores);
 			$this->load->view('listaColaboradoresView.php', $dados);
 

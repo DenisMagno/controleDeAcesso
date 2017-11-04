@@ -59,12 +59,10 @@
 							'idSupervisor' => $this->idSupervisor
 					);
 				}else{
-					print_r("Não é um gerente!");
-					exit;
+					return false;
 				}
 			}else{
-				print_r("Pessoa não cadastrada!");
-				exit;
+				return false;
 			}
 		}
 
