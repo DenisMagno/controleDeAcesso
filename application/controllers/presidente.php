@@ -16,11 +16,18 @@
 			$this->load->helper('url');
 			$this->load->view('component/head.php');
 
+			$dados = array('titulo' => 'Presidente',
+							'nome' => $this->logado['nome'],
+							'sobrenome' => $this->logado['sobrenome']);
+			$this->load->view('menuView.php', $dados);
+
 			$this->load->model('PresidenteModel', 'model');
 			
 			$supervisores = $this->model->listaSupervisores($this->logado['id']);
+			$dados = array('titulo' => 'Lista de supervisores',
+							'supervisores' => $supervisores);
+			$this->load->view('listaSupervisoresView.php', $dados);	
 
-			echo "<pre>".print_r($supervisores, 1)."</pre>";
 			$this->load->view('component/footer.php');
 		} 
 	}

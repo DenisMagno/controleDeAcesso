@@ -13,7 +13,7 @@
 			$presidente->setSenha($this->input->post('senha'));
 			$result = $presidente->login();
 
-			if($result != null){
+			if($result != false){
 				return $result;
 			}else{
 				return false;

@@ -46,12 +46,10 @@
 							'setor' => $this->setor
 					);
 				}else{
-					print_r("Não é um presidente!");
-					exit;
+					return false;
 				}
 			}else{
-				print_r("Pessoa não cadastrada!");
-				exit;
+				return false;
 			}
 		}
 

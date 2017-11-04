@@ -16,11 +16,18 @@
 			$this->load->helper('url');
 			$this->load->view('component/head.php');
 
-			$this->load->model('SupervisorModel', 'model');
-			
-			$gerentes = $this->model->listaGerentes($this->logado['id']);
+			$dados = array('titulo' => 'Supervisor',
+							'nome' => $this->logado['nome'],
+							'sobrenome' => $this->logado['sobrenome']);
+			$this->load->view('menuView.php', $dados);
 
-			echo "<pre>".print_r($gerentes, 1)."</pre>";
+			$this->load->model('SupervisorModel', 'model');
+
+			$gerentes = $this->model->listaGerentes($this->logado['id']);
+			$dados = array('titulo' => 'Lista de gerentes',
+							'gerentes' => $gerentes);
+			$this->load->view('listaGerentesView.php', $dados);	
+
 			$this->load->view('component/footer.php');
 		} 
 	}

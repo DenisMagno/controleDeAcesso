@@ -11,12 +11,13 @@
 			switch ($tipoPessoa) {
 				case "presidente":
 					$login = $this->model->loginPresidente();
-					if(!empty($login)){
+					if($login != false){
 						$this->session->set_userdata('presidente', $login);
 						redirect(base_url("presidente/listaSupervisores"));
 					}else{
-						echo "Não logou!";
+						echo "<pre>".print_r($login, 1)."</pre>";
 						exit;
+						//$this->load->view('loginView.php',$erro);
 					}
 					
 				break;

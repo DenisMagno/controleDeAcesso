@@ -16,6 +16,9 @@
 		<!-- Material Design Bootstrap -->
 		<link href="<?=base_url('assets/css/mdb.min.css');?>" rel="stylesheet">
 
+		<!-- Style -->
+		<link href="<?=base_url('assets/css/style.css');?>" rel="stylesheet">
+
 		<!-- Template styles -->
 		<style rel="stylesheet">
 			/* TEMPLATE STYLES */
