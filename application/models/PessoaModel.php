@@ -1,13 +1,13 @@
 <?php
-	include APPPATH . 'libraries/Presidente.php';
-	include APPPATH . 'libraries/Supervisor.php';
-	include APPPATH . 'libraries/Gerente.php';
-	include APPPATH . 'libraries/Colaborador.php';
+	include APPPATH . 'libraries/PresidenteLibrary.php';
+	include APPPATH . 'libraries/SupervisorLibrary.php';
+	include APPPATH . 'libraries/GerenteLibrary.php';
+	include APPPATH . 'libraries/ColaboradorLibrary.php';
 
 	class PessoaModel extends CI_Model{
 
 		public function loginPresidente(){
-			$presidente = new Presidente();
+			$presidente = new PresidenteLibrary();
 
 			$presidente->setLogin($this->input->post('login'));
 			$presidente->setSenha($this->input->post('senha'));
@@ -21,7 +21,7 @@
 		}
 
 		public function loginSupervisor(){
-			$supervisor = new Supervisor();
+			$supervisor = new SupervisorLibrary();
 
 			$supervisor->setLogin($this->input->post('login'));
 			$supervisor->setSenha($this->input->post('senha'));
@@ -35,7 +35,7 @@
 		}
 
 		public function loginGerente(){
-			$gerente = new Gerente();
+			$gerente = new GerenteLibrary();
 
 			$gerente->setLogin($this->input->post('login'));
 			$gerente->setSenha($this->input->post('senha'));
@@ -50,7 +50,7 @@
 		}
 
 		public function loginColaborador(){
-			$colaborador = new Colaborador();
+			$colaborador = new ColaboradorLibrary();
 
 			$colaborador->setLogin($this->input->post('login'));
 			$colaborador->setSenha($this->input->post('senha'));

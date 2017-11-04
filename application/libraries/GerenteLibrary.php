@@ -1,8 +1,7 @@
 <?php
-	include_once APPPATH . 'libraries/Pessoa.php';
-	include_once APPPATH . 'helpers/dataTransferObjects/DtoGerente.php';
-	
-	class Gerente extends Pessoa{
+	include_once APPPATH . 'libraries/PessoaLibrary.php';
+
+	class GerenteLibrary extends PessoaLibrary{
 		private $graduacao;
 		private $idSupervisor;
 
@@ -49,7 +48,16 @@
 					$this->graduacao = $row->graduacao;
 					$this->idSupervisor = $row->idSupervisor;
 
-					return new DtoGerente($this);
+					return array(
+							'id' => $this->id,
+							'nome' => $this->nome,
+							'sobrenome' => $this->sobrenome,
+							'login' => $this->login,
+							'senha' => $this->senha,
+							'rg' => $this->rg,
+							'graduacao' => $this->graduacao,
+							'idSupervisor' => $this->idSupervisor
+					);
 				}else{
 					print_r("Não é um gerente!");
 					exit;
@@ -57,6 +65,29 @@
 			}else{
 				print_r("Pessoa não cadastrada!");
 				exit;
+			}
+		}
+
+		public function getColaboradores($idGerente){
+			$sql = "SELECT * FROM colaborador WHERE idGerente = ?";
+			$query = $this->db->query($sql, array($idGerente));
+
+			if($query->result() != null){
+				foreach ($query->result_array() as $key => $row)
+				{
+					$colaborador = $row;
+
+					$sql = "SELECT * FROM pessoa WHERE id = ?";
+					$query = $this->db->query($sql, array($row['id']));
+
+					$pessoa = $query->result_array();
+
+					$colaboradores[$key] = array_merge($pessoa[0], $colaborador);
+				}
+
+				return $colaboradores;
+			}else{
+				return false;
 			}
 		}
 	}

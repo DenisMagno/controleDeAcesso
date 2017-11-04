@@ -1,6 +1,6 @@
 <div class="container">
 	<!-- Form subscription -->
-	<form class="col-md-6 mx-auto mt-5" method="POST" action="<?= base_url('pessoaController/login');?>">
+	<form class="col-md-6 mx-auto mt-5" method="POST" action="<?= base_url('pessoa/login');?>">
 		<p class="h5 text-center mb-4">Logar-se</p>
 
 		<div class="md-form">

@@ -1,8 +1,7 @@
 <?php
-	include_once APPPATH . 'libraries/Pessoa.php';
-	include_once APPPATH . 'helpers/dataTransferObjects/DtoColaborador.php';
+	include_once APPPATH . 'libraries/PessoaLibrary.php';
 	
-	class Colaborador extends Pessoa{
+	class ColaboradorLibrary extends PessoaLibrary{
 		private $cnh;
 		private $idGerente;
 
@@ -49,7 +48,16 @@
 					$this->cnh = $row->cnh;
 					$this->idGerente = $row->idGerente;
 
-					return new DtoColaborador($this);
+					return array(
+							'id' => $this->id,
+							'nome' => $this->nome,
+							'sobrenome' => $this->sobrenome,
+							'login' => $this->login,
+							'senha' => $this->senha,
+							'rg' => $this->rg,
+							'cnh' => $this->cnh,
+							'idGerente' => $this->idGerente
+					);
 				}else{
 					print_r("Não é um colaborador!");
 					exit;

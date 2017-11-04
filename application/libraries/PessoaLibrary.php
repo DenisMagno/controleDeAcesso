@@ -1,5 +1,5 @@
 <?php
-	abstract class Pessoa{
+	abstract class PessoaLibrary{
 		protected $id;
 		protected $nome;
 		protected $sobrenome;

@@ -1,5 +1,5 @@
 <?php
-	class PessoaController extends CI_Controller{
+	class Pessoa extends CI_Controller{
 		public function login(){
 			$this->load->helper('url');
 			$this->load->view('component/head.php');
@@ -12,7 +12,7 @@
 				case "presidente":
 					$login = $this->model->loginPresidente();
 					if(!empty($login)){
-						$this->session->set_userdata("presidente", $login);
+						$this->session->set_userdata('presidente', $login);
 						redirect(base_url("presidente/listaSupervisores"));
 					}else{
 						echo "Não logou!";
