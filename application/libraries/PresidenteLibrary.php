@@ -10,11 +10,16 @@
 		public function getSetor(){
 			return $this->setor;
 		}
-
 		public function setSetor($setor){
 			$this->setor = $setor;
 		}
 
+		/*
+		*	Faz o login de um presidente
+		*
+		*	@return array: os dados do presidente
+		*	@return boolean: false, caso não encontre nenhum presidente.
+		*/
 		public function login(){
 			$sql = "SELECT * FROM pessoa WHERE login = ? AND senha = ?";
 			$query = $this->db->query($sql, array($this->login, $this->senha));
@@ -53,6 +58,13 @@
 			}
 		}
 
+		/*
+		*	Pega os supervisores na hierarquia de um presidente
+		*
+		*	@param int: id do presidente
+		*	@return array: supervisores encontrados
+		*	@return boolean: false, caso não encontre nenhum supervisor.
+		*/
 		public function getSupervisores($idPresidente){
 			$sql = "SELECT * FROM supervisor WHERE idPresidente = ?";
 			
@@ -81,6 +93,13 @@
 			}
 		}
 
+		/*
+		*	Pega os gerentes na hierarquia de um supervisor
+		*
+		*	@param int: id do supervisor
+		*	@return array: gerentes encontrados
+		*	@return boolean: false, caso não encontre nenhum gerente.
+		*/
 		private function getGerentes($idSupervisor){
 			$sql = "SELECT * FROM gerente WHERE idSupervisor = ?";
 			
@@ -108,6 +127,13 @@
 			}
 		}
 
+		/*
+		*	Pega os colaboradores na hierarquia de um gerente
+		*
+		*	@param int: id do gerente
+		*	@return array: colaboradores encontrados
+		*	@return boolean: false, caso não encontre nenhum colaborador.
+		*/
 		private function getColaboradores($idGerente){
 			$sql = "SELECT * FROM colaborador WHERE idGerente = ?";
 			$query = $this->db->query($sql, array($idGerente));

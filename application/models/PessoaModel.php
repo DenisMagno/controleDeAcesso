@@ -6,6 +6,12 @@
 
 	class PessoaModel extends CI_Model{
 
+		/*
+		*	Faz o login de um presidente
+		*
+		*	@return array: dados do presidente 
+		*	@return boolean: false, caso não encontre nenhum presidente.
+		*/
 		public function loginPresidente(){
 			$presidente = new PresidenteLibrary();
 
@@ -20,6 +26,12 @@
 			}
 		}
 
+		/*
+		*	Faz o login de um supervisor
+		*
+		*	@return array: dados do supervisor 
+		*	@return boolean: false, caso não encontre nenhum supervisor.
+		*/
 		public function loginSupervisor(){
 			$supervisor = new SupervisorLibrary();
 
@@ -34,6 +46,12 @@
 			}
 		}
 
+		/*
+		*	Faz o login de um gerente
+		*
+		*	@return array: dados do gerente 
+		*	@return boolean: false, caso não encontre nenhum gerente.
+		*/
 		public function loginGerente(){
 			$gerente = new GerenteLibrary();
 
@@ -49,6 +67,12 @@
 			}
 		}
 
+		/*
+		*	Faz o login de um colaborador
+		*
+		*	@return array: dados do colaborador 
+		*	@return boolean: false, caso não encontre nenhum colaborador.
+		*/
 		public function loginColaborador(){
 			$colaborador = new ColaboradorLibrary();
 

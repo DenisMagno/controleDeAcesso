@@ -3,7 +3,7 @@
 <div class="">
 	<div class="list-group">
 		<?php if(!empty($supervisores)){foreach($supervisores as $key => $value){ ?>
-		<a href="#" class="list-group-item list-group-item-action flex-column align-items-start mt-3 col-md-6 mx-auto">
+		<a href="#" class="list-group-item list-group-item-action flex-column align-items-start mt-3 col-md-6 mx-auto blue-grey lighten-5">
 			<div class="d-flex w-100 justify-content-between">
 				<h5 class="mb-1 h3"><?=$supervisores[$key]['nome']?> <?=$supervisores[$key]['sobrenome']?></h5>
 				<small>Login: <?=$supervisores[$key]['login']?></small>
@@ -16,7 +16,7 @@
 
 			<ul class="list-group">
 				<?php if(!empty($supervisores[$key]['gerentes'])){foreach($supervisores[$key]['gerentes'] as $id => $value){ ?>
-					<li class="list-group-item">
+					<li class="list-group-item mb-2">
 							<small class="mb-1 h5"><?=$supervisores[$key]['gerentes'][$id]['nome']?><?=$supervisores[$key]['gerentes'][$id]['sobrenome']?></small></br>
 							<small class="mb-1">Graduação: <?=$supervisores[$key]['gerentes'][$id]['graduacao']?></small></br>
 							<small class="mb-1">Número do RG: <?=$supervisores[$key]['gerentes'][$id]['rg']?></small></br>
@@ -24,7 +24,7 @@
 
 						<ul class="list-group">
 							<?php if(!empty($supervisores[$key]['gerentes'][$id]['colaboradores'])){foreach($supervisores[$key]['gerentes'][$id]['colaboradores'] as $ident => $value){ ?>
-								<li class="list-group-item">
+								<li class="list-group-item mb-2">
 									<small class="h6"><?=$supervisores[$key]['gerentes'][$id]['colaboradores'][$ident]['nome']?> <?=$supervisores[$key]['gerentes'][$id]['colaboradores'][$ident]['sobrenome']?></small></br>
 									<small class="">Númedo da CNH: <?=$supervisores[$key]['gerentes'][$id]['colaboradores'][$ident]['cnh']?></small></br>
 									<small class="">Númedo do RG: <?=$supervisores[$key]['gerentes'][$id]['colaboradores'][$ident]['rg']?></small>

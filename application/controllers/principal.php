@@ -1,7 +1,7 @@
 <?php
 	class Principal extends CI_Controller{
 
-		//Função com nome index funciona como um construtor para o navegador.
+		//A função com nome index funciona como um construtor para o navegador.
 		//Ela é executada logo que o controler e chamado no navegador sem a necessidade de especificar seu nome
 		public function index(){
 			$this->load->helper("url");

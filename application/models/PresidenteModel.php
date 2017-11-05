@@ -3,8 +3,14 @@
 
 	class PresidenteModel extends CI_Model{
 
+		/*
+		*	Lista supervisores
+		*
+		*	@param int: id do presidente
+		*	@return array: supervisores 
+		*	@return boolean: false, caso não encontre nenhum supervisor.
+		*/
 		public function listaSupervisores($id){
-
 			$presidente = new PresidenteLibrary();
 
 			$supervisores = $presidente->getSupervisores($id);

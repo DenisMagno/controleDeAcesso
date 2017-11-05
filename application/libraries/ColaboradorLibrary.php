@@ -11,7 +11,6 @@
 		public function getCnh(){
 			return $this->cnh;
 		}
-
 		public function setCnh($cnh){
 			$this->cnh = $cnh;
 		}
@@ -20,11 +19,16 @@
 		public function getIdGerente(){
 			return $this->idGerente;
 		}
-
 		public function setIdGerente($idGerente){
 			$this->idGerente = $idGerente;
 		}
 
+		/*
+		*	Faz o login de um colaborador
+		*
+		*	@return array: os dados do colaborador
+		*	@return boolean: false, caso não encontre nenhum colaborador.
+		*/
 		public function login(){
 			$sql = "SELECT * FROM pessoa WHERE login = ? AND senha = ?";
 			$query = $this->db->query($sql, array($this->login, $this->senha));

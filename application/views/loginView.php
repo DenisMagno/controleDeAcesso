@@ -7,13 +7,13 @@
 
 		<div class="md-form">
 			<i class="fa fa-envelope prefix grey-text"></i>
-			<input name="login" type="text" id="defaultForm-email" class="form-control">
+			<input name="login" type="text" id="defaultForm-email" class="form-control" required>
 			<label for="defaultForm-email">Login</label>
 		</div>
 
 		<div class="md-form">
 			<i class="fa fa-lock prefix grey-text"></i>
-			<input name="senha" type="password" id="defaultForm-pass" class="form-control">
+			<input name="senha" type="password" id="defaultForm-pass" class="form-control" required>
 			<label for="defaultForm-pass">Senha</label>
 		</div>
 		<div class="md-form">

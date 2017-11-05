@@ -1,5 +1,9 @@
 <?php
 	class Pessoa extends CI_Controller{
+
+		/*
+		*	Faz o login de uma pessoa e a redireciona dependendo do seu tipo
+		*/
 		public function login(){
 			$this->load->helper('url');
 			$this->load->view('component/head.php');
@@ -8,7 +12,10 @@
 
 			$tipoPessoa = $this->input->post('tipoPessoa');
 
+			//Verifica tipo de pessoa
 			switch ($tipoPessoa) {
+
+				//Verifica se pessoa é um presidente
 				case "presidente":
 					$login = $this->model->loginPresidente();
 					if($login != false){
@@ -22,6 +29,7 @@
 					
 				break;
 
+				//Verifica se pessoa é um supervisor
 				case "supervisor":
 					$login = $this->model->loginSupervisor();
 					if(!empty($login)){
@@ -34,6 +42,7 @@
 					}
 				break;
 
+				//Verifica se pessoa é um gerente
 				case "gerente":
 					$login = $this->model->loginGerente();
 					if(!empty($login)){
@@ -46,6 +55,7 @@
 					}
 				break;
 
+				//Verifica se pessoa é um colaborador
 				case "colaborador":
 					$login = $this->model->loginColaborador();
 					if(!empty($login)){
@@ -62,6 +72,11 @@
 			$this->load->view('component/footer.php');
 		}
 
+		/*
+		*	Faz o logout de uma pessoa
+		*
+		*	Encerra sessão ativa do usuário do sistema e redireciona o mesmo para a página principal
+		*/
 		public function logout(){
 			$this->load->helper('url');
 			$this->session->sess_destroy();

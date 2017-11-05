@@ -2,6 +2,12 @@
 	class Gerente extends CI_Controller{
 		private $logado;
 
+		/*
+		*	Método construtor: Verifica se usuário está logado
+		*
+		*	Caso usuário não esteja logado com uma sessão ativa no sistema, redireciona o mesmo para página principal
+		*
+		*/
 		function __construct(){
 			parent:: __construct();
 			$this->logado = $this->session->userdata('gerente');
@@ -12,6 +18,9 @@
 			}
 		}
 
+		/*
+		*	Lista os colaboradores de que estão na hierarquia de um gerente.
+		*/
 		public function listaColaboradores(){
 			$this->load->helper('url');
 			$this->load->view('component/head.php');

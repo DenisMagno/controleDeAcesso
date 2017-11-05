@@ -12,7 +12,6 @@
 		public function getGraduacao(){
 			return $this->graduacao;
 		}
-
 		public function setGraduacao($graduacao){
 			$this->graduacao = $graduacao;
 		}
@@ -21,7 +20,6 @@
 		public function getEspecializacao(){
 			return $this->especializacao;
 		}
-
 		public function setEspecializacao($especializacao){
 			$this->especializacao = $especializacao;
 		}
@@ -30,11 +28,16 @@
 		public function getIdPresidente(){
 			return $this->idPresidente;
 		}
-
 		public function setIdPresidente($idPresidente){
 			$this->idPresidente = $idPresidente;
 		}
 
+		/*
+		*	Faz o login de um supervisor
+		*
+		*	@return array: os dados do supervisor
+		*	@return boolean: false, caso não encontre nenhum supervisor.
+		*/
 		public function login(){
 			$sql = "SELECT * FROM pessoa WHERE login = ? AND senha = ?";
 			$query = $this->db->query($sql, array($this->login, $this->senha));
@@ -78,6 +81,13 @@
 			}
 		}
 
+		/*
+		*	Pega os gerentes na hierarquia de um supervisor
+		*
+		*	@param int: id do supervisor
+		*	@return array: gerentes encontrados
+		*	@return boolean: false, caso não encontre nenhum gerente.
+		*/
 		public function getGerentes($idSupervisor){
 			$sql = "SELECT * FROM gerente WHERE idSupervisor = ?";
 			
@@ -104,6 +114,13 @@
 			}
 		}
 
+		/*
+		*	Pega os colaboradores na hierarquia de um gerente
+		*
+		*	@param int: id do gerente
+		*	@return array: colaboradores encontrados
+		*	@return boolean: false, caso não encontre nenhum colaborador.
+		*/
 		private function getColaboradores($idGerente){
 			$sql = "SELECT * FROM colaborador WHERE idGerente = ?";
 			$query = $this->db->query($sql, array($idGerente));
